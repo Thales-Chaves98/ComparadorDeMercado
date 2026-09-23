@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
 :root{
+
+    --font-main: "Jakarta", sans-serif;
 
     --bg-main:          #f1f5f9;       
     --card-bg:          #ffffff;       
@@ -29,5 +33,4 @@
 
     --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.08);
 }
-    
     
