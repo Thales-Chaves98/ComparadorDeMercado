@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&"/>
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
@@ -12,25 +13,30 @@
     </header>
 
     <main>
-        <section class="home">
+        <section id="home" class="home">
             <div class="home-title">
                 <h1 class="title-text">COMPARADOR DE SUPERMERCADO</h1>
                 <p class="subtitle-text">Compare preços e economize!</p>
             </div>
 
             <div class="home-menu">
-                <button class="new-list-btn">NOVA COMPRA</button>
-                <button class="markets-btn">MERCADOS</button>
-                <button class="shopping-lists-btn">COMPRAS</button>
+                <button data-view="new-list" class="menu-btn">NOVA COMPRA</button>
+                <button data-view="markets" class="menu-btn">MERCADOS</button>
+                <button data-view="shopping-lists" class="menu-btn">COMPRAS</button>
             </div>
         </section>
 
-        <section class="markets hidden">
+        <section id="new-list" class="new-list hidden"> 
+            <div class="div-new-list"></div>
+            <button class="back-home">VOLTAR</button>
+        </section>
+
+        <section id="markets" class="markets hidden">
             <div class="div-markets"></div>
             <button class="back-home">VOLTAR</button>
         </section>
-        
-        <section class="shopping-lists hidden">
+
+        <section id="shopping-lists" class="shopping-lists hidden">
             <div class="div-list"></div>   
             <button class="back-home">VOLTAR</button>
         </section>

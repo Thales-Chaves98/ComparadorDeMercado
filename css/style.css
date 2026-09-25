@@ -2,16 +2,21 @@
 @import "variables.css";
 
 
-.div-markets{
-    width: 250px;
-    height: 250px;
-    background-color: var(--primary);
+*{
+    box-sizing: border-box;
 }
-.div-list{
-    width: 250px;
-    height: 250px;
-    background-color: var(--accent);
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .hidden{
     display: none;

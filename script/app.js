@@ -1,16 +1,30 @@
-const mainScreen = document.querySelector("main");
-const newListBtn = document.querySelector(".new-list-btn");
-const newMarketBtn = document.querySelector(".markets-btn");
+const main = document.querySelector('main');
 
 
+main.addEventListener('click', (e) =>{
 
-mainScreen.addEventListener("click", (e) =>{
-    let targetBtn = e.target.document.querySelector("button");
-    console.log(targetBtn);
-
-    if(targetBtn.contains("new-list-btn")){
-        newListBtn.classList.remove("hidden");
-    } else if(targetBtn.contains("markets-btn")){
-        newMarketBtn.classList.remove("hidden");
+    const targetView = e.target.dataset.view;
+    if(targetView){
+        showView(targetView);
+    } else if(e.target.classList.contains('back-home')){
+        showView('home');
     }
 });
+
+
+
+function showView(viewId) {
+    const views = document.querySelectorAll('main section');
+
+    views.forEach(v => {
+        v.classList.add('hidden');
+    });
+
+    const viewToShow = document.getElementById(viewId);
+
+    viewToShow.classList.remove('hidden');
+
+}
+
+
+
