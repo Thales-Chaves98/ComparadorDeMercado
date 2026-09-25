@@ -65,20 +65,36 @@ main{
 
     width: 100%;
 
-    margin-top: var(--space-lg);
+    margin-top: var(--space-xx);
     
 }
-.home-menu .menu-btn{
+.menu-btn{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+    gap: var(--space-md);
+
     padding: var(--space-md);
 
-    background-color: var(--card-bg);
+    background-color: color-mix(in srgb, var(--primary) 15%, transparent);
     color: var(--text-main);
     font-weight: 700;
 
     border: 1px solid var(--border);
     border-radius: var(--space-xx);
-}
 
+    box-shadow: var(--shadow-card);
+
+}
+.menu-btn:hover{
+    background-color: var(--primary-hover);
+    color: var(--bg-main);
+    cursor: pointer;
+}
+.menu-btn span{
+    margin-left: var(--space-md);
+}
 
 
 

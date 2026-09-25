@@ -6,13 +6,13 @@
 
     --bg-main:          #f1f5f9;       
     --card-bg:          #ccd9ff;       
-    --primary:          #1e3a8a;       
-    --primary-hover:    #1e40af;  
+    --primary:          #165a2a;       
+    --primary-hover:    #1d6e36;  
     --accent:           #ff6b00;         
     --accent-hover:     #e05e00;  
-    --text-main:        #0f172a;      
-    --text-muted:       #64748b;     
-    --border:           #cbd5e1;
+    --text-main:        #092913;      
+    --text-muted:       #7f9986;     
+    --border:           #c8e4cd;
     --color-success:    #2e9e6b;
     --color-danger:     #e05263;
 
@@ -31,6 +31,6 @@
     --font-size-xl: 32px;
     --font-size-xx: 48px;
 
-    --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.08);
+    --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.5);
 }
     
