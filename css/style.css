@@ -241,6 +241,8 @@ button{
     justify-content: center;
     align-items: center;
     gap: var(--space-md);
+
+    width: 100%;
 }
 
 .new-market-btn{
@@ -251,6 +253,8 @@ button{
     padding: var(--space-md);
     border-radius: var(--space-sm);
 }
+
+
 
 .empty-markets{
     display: flex;
@@ -306,4 +310,24 @@ button{
 }
 .market-name-input:focus{
     outline: 2px solid var(--primary);
+}
+
+.markets-container{
+    width: 95%;
+}
+.marketUL{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--card-bg);
+    
+    width: 100%;
+}
+.marketLI{
+    border-bottom: 2px solid var(--border);
+    padding: var(--space-sm);
+
+    width: 100%;
 }
