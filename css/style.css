@@ -147,3 +147,38 @@ footer a:hover{
 
 /*MARKETS*/
 
+.market-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: var(--space-xs);
+
+    margin-bottom: var(--space-md);
+}
+
+.market-input, .new-market-btn{
+    padding: var(--space-sm);
+    border-radius: var(--space-sm);
+    
+
+}   
+
+.market-input{
+    border: 1px solid var(--primary);
+    font-family: inherit;
+    font-size: var(--font-size-md);
+    
+    background-color: transparent;
+}
+.market-input::placeholder{
+    color: var(--text-muted);
+
+}
+
+.new-market-btn{
+    background-color: var(--primary);
+    color: var(--bg-main);
+    font-weight: 700;
+    border: 1px solid var(--border);
+}

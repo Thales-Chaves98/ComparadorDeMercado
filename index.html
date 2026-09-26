@@ -13,7 +13,7 @@
     </header>
 
     <main>
-        <section id="home" class="home-header">
+        <section id="home" class="home-header hidden"> <!-- REMOVE HIDDEN LATER-->
             <div class="home-title">
                 <h1 class="title-text">COMPARADOR DE SUPERMERCADO</h1>
                 <p class="subtitle-text">Compare preços e economize!</p>
@@ -32,8 +32,18 @@
 arrow_left_alt</span></button>
         </section>
 
-        <section id="markets" class="markets hidden">
-            <div class="div-markets"></div>
+        <section id="markets" class="markets">  <!-- ADD HIDDEN LATER-->
+            <div class="markets">
+                <div class="market-form">
+                    <input type="text" id="market-input" class="market-input" placeholder="DIGITE O NOME DO MERCADO">
+                    <button id="new-makert-btn" class="new-market-btn">NOVO MERCADO</button>
+                </div>
+
+                <div class="market-container">
+
+                </div>
+            </div>
+
             <button class="back-home"><span class="material-symbols-outlined">arrow_left_alt</span></button>
         </section>
 
