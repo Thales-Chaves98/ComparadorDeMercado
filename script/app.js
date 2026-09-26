@@ -1,5 +1,8 @@
 const main = document.querySelector('main');
+const header = document.querySelector('header');
+const addMarketBtn = document.getElementById('new-market-btn');
 
+const cancelBtn = document.querySelectorAll('.cancel-btn');
 
 main.addEventListener('click', (e) =>{
 
@@ -14,7 +17,26 @@ main.addEventListener('click', (e) =>{
 
 });
 
+header.addEventListener('click', (e) => {
+    const backMenuBtn = e.target.closest('.back-home');
 
+    if(backMenuBtn) {
+        showView('home');
+    }
+});
+
+addMarketBtn.addEventListener('click', () => {
+    const newMarketModal = document.getElementById('add-market-modal');
+    newMarketModal.showModal();
+
+    
+});
+
+cancelBtn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        btn.closest('dialog').close();
+    });
+});
 
 function showView(viewId) {
     const views = document.querySelectorAll('main section');
@@ -29,5 +51,21 @@ function showView(viewId) {
 
 }
 
+//MARKETS
+
+let markets = [];
+
+
+
+function createMarketList(){
+    const marketContainer = document.querySelector('.markets-container');
+
+    if(markets.length > 0){
+        marketContainer.innerHTML = '';
+
+
+    }
+
+}
 
 

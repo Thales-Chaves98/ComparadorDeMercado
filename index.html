@@ -9,7 +9,9 @@
 </head>
 <body>
     <header>
+        <button class="back-home hidde"><span class="material-symbols-outlined">arrow_left_alt</span></button>
         <span class="material-symbols-outlined logo filled">store</span>
+        <button class="theme-toggle"><span class="material-symbols-outlined filled">moon_stars</span></button>
     </header>
 
     <main>
@@ -28,8 +30,6 @@
 
         <section id="new-list" class="new-list hidden"> 
             <div class="div-new-list"></div>
-            <button class="back-home"><span class="material-symbols-outlined">
-arrow_left_alt</span></button>
         </section>
 
         <section id="markets" class="markets ">  <!-- ADD HIDDEN LATER-->
@@ -42,23 +42,40 @@ arrow_left_alt</span></button>
                     <div class="empty-markets">
                         <span class="material-symbols-outlined filled">add_business</span>
                         <h1>NENHUM MERCADO CADASTRADO !</h1>
+                        <p>Adicione um mercado para comparar preços.</p>
                     </div>
                 </div>
                 
             </div>
-
-            <button class="back-home"><span class="material-symbols-outlined">arrow_left_alt</span></button>
         </section>
 
         <section id="shopping-lists" class="shopping-lists hidden">
             <div class="div-list"></div>   
-            <button class="back-home"><span class="material-symbols-outlined">arrow_left_alt</span></button>
         </section>
     </main>
 
     <footer>
         <p>Comparador de Mercado feito por <a href="https://github.com/Thales-Chaves98" target="_blank">Thales Chaves</a>.</p>
     </footer>
+
+    <dialog id="add-market-modal" class="modal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>ADICIONAR MERCADO</h2>
+            </div>
+            <div class="modal-content">
+                <label for="market-name-input" class="market-label">SUPERMERCADO:</label>
+                <input type="text" id="market-name-input" class="market-name-input" placeholder="NOME DO MERCADO">
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <button id="cancel-market-btn" class="cancel-btn">CANCELAR</button>
+            <button id="save-market-btn" class="save-btn">SALVAR</button>
+        </div>
+        
+    </dialog>
+
 
     <script src="script/app.js"></script>
 </body>
