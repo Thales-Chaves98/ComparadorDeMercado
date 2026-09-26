@@ -104,7 +104,7 @@ main{
 }
 
 footer{
-    padding: var(--space-md);
+    padding: var(--space-sm);
     margin-top: var(--space-md);
     background-color: color-mix(in srgb, var(--primary) 10%, transparent);
 }
@@ -146,34 +146,19 @@ footer a:hover{
 }
 
 /*MARKETS*/
+.markets{
+    width: 95%;
+    margin-top: var(--space-md);
+}
 
-.market-form{
+.markets-view{
+    flex: 1;
+    
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    gap: var(--space-xs);
-
-    margin-bottom: var(--space-md);
-}
-
-.market-input, .new-market-btn{
-    padding: var(--space-sm);
-    border-radius: var(--space-sm);
-    
-
-}   
-
-.market-input{
-    border: 1px solid var(--primary);
-    font-family: inherit;
-    font-size: var(--font-size-md);
-    
-    background-color: transparent;
-}
-.market-input::placeholder{
-    color: var(--text-muted);
-
+    gap: var(--space-md);
 }
 
 .new-market-btn{
@@ -181,4 +166,25 @@ footer a:hover{
     color: var(--bg-main);
     font-weight: 700;
     border: 1px solid var(--border);
+    padding: var(--space-md);
+    border-radius: var(--space-sm);
+}
+
+.empty-markets{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    font-family: var(--font-main);
+    font-weight: 700;
+}
+.empty-markets > span{
+    color: var(--color-danger);
+    font-size: 8em;
+}
+.empty-markets > h1{
+    color: var(--color-danger);
+    font-size: var(--font-size-lg);
+    text-align: center;
 }

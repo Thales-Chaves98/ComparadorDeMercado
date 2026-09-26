@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <span class="material-symbols-outlined logo filled">add_business</span>
+        <span class="material-symbols-outlined logo filled">store</span>
     </header>
 
     <main>
@@ -32,16 +32,19 @@
 arrow_left_alt</span></button>
         </section>
 
-        <section id="markets" class="markets">  <!-- ADD HIDDEN LATER-->
-            <div class="markets">
-                <div class="market-form">
-                    <input type="text" id="market-input" class="market-input" placeholder="DIGITE O NOME DO MERCADO">
-                    <button id="new-makert-btn" class="new-market-btn">NOVO MERCADO</button>
+        <section id="markets" class="markets ">  <!-- ADD HIDDEN LATER-->
+            <div class="markets-view">
+                <div class="market-action">
+                    <button id="new-market-btn" class="new-market-btn">ADICIONAR MERCADO</button>
                 </div>
 
-                <div class="market-container">
-
+                <div class="markets-container">
+                    <div class="empty-markets">
+                        <span class="material-symbols-outlined filled">add_business</span>
+                        <h1>NENHUM MERCADO CADASTRADO !</h1>
+                    </div>
                 </div>
+                
             </div>
 
             <button class="back-home"><span class="material-symbols-outlined">arrow_left_alt</span></button>
