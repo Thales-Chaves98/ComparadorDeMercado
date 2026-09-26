@@ -3,12 +3,15 @@ const main = document.querySelector('main');
 
 main.addEventListener('click', (e) =>{
 
-    const targetView = e.target.dataset.view;
-    if(targetView){
-        showView(targetView);
-    } else if(e.target.classList.contains('back-home')){
+    const viewBtn = e.target.closest('button[data-view]');
+    const backBtn = e.target.closest('.back-home');
+
+    if(viewBtn) {
+        showView(viewBtn.dataset.view);
+    } else if(backBtn) {
         showView('home');
     }
+
 });
 
 

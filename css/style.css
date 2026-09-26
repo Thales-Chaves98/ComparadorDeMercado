@@ -14,6 +14,7 @@ body{
 
     height: 100vh;
 
+    background-color: color-mix(in srgb, var(--primary) 5%, transparent);
 }
 
 header{
@@ -35,6 +36,8 @@ main{
 
     display: flex;
     justify-content: center;
+
+    font-family: inherit;
 
 }
 
@@ -92,14 +95,32 @@ main{
     color: var(--bg-main);
     cursor: pointer;
 }
+.menu-btn:active{
+    transform: scale(0.9);
+    transition: transform 0.1s ease-in-out;
+}
 .menu-btn span{
     margin-left: var(--space-md);
 }
 
+footer{
+    padding: var(--space-md);
+    margin-top: var(--space-md);
+    background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+}
+footer p{
+    text-align: center;
+    color: var(--text-muted);
+}
+footer a{
+    color: var(--primary);
+    text-decoration: none;
+}
+footer a:hover{
+    text-decoration: underline;
+}
 
-
-
-
+/* GLOBAL */
 
 .filled{
     font-variation-settings: "FILL" 1;
@@ -108,3 +129,21 @@ main{
 .hidden{
     display: none;
 }
+
+.back-home{
+    background-color: transparent;
+    border: none;
+    padding: var(--space-sm);
+}
+.back-home > span{
+    font-size: var(--font-size-xl);
+    color: var(--primary);
+}
+.back-home:hover{
+    cursor: pointer;
+    background-color: color-mix(in srgb, var(--primary) 15%, transparent);
+    border-radius: 50%;
+}
+
+/*MARKETS*/
+
