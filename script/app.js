@@ -1,8 +1,12 @@
 const main = document.querySelector('main');
 const header = document.querySelector('header');
 const addMarketBtn = document.getElementById('new-market-btn');
+const backHomeBtn = document.querySelector(".back-home");
 
 const cancelBtn = document.querySelectorAll('.cancel-btn');
+
+const newMarketInput = document.getElementById("market-name-input");
+const saveMarketBtn = document.getElementById("save-market-btn");
 
 main.addEventListener('click', (e) =>{
 
@@ -32,9 +36,17 @@ addMarketBtn.addEventListener('click', () => {
     
 });
 
+saveMarketBtn.addEventListener('click', () =>{
+
+});
+
+
+
 cancelBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
         btn.closest('dialog').close();
+
+        newMarketInput.value = "";
     });
 });
 
@@ -48,7 +60,12 @@ function showView(viewId) {
     const viewToShow = document.getElementById(viewId);
 
     viewToShow.classList.remove('hidden');
-
+    
+    if(viewId === "home"){
+        backHomeBtn.classList.add('invisible');
+    } else {
+        backHomeBtn.classList.remove('invisible');        
+    }
 }
 
 //MARKETS
@@ -69,3 +86,7 @@ function createMarketList(){
 }
 
 
+/* TODO/FIX:
+- ADD NEW MARKET MODAL ESC DONT CLEAR THE INPUT
+
+*/
