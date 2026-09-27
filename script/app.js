@@ -67,9 +67,13 @@ const saveMarketBtn = document.getElementById("save-market-btn");
 const newMarketModal = document.getElementById("add-market-modal");
 const confirmDeleteModal = document.getElementById("confirm-delete-modal");
 
+const deleteMarketBtn = document.getElementById("delete-market-btn");
+
+let markets = [];
+
 let marketId = 1;
 
-let editingMarketId = 2;
+let editingMarketId;
 let deletingMarketId;
 
 newMarketModal.addEventListener('cancel', () =>{
@@ -87,7 +91,7 @@ saveMarketBtn.addEventListener('click', () =>{
     saveMarket();
 });
 
-marketContainer.addEventListener("click", (e) =>{
+marketContainer.addEventListener('click', (e) =>{
     const btn = e.target.closest("button");
 
     if(!btn) return;
@@ -101,11 +105,23 @@ marketContainer.addEventListener("click", (e) =>{
         const editInput = btn.closest(".marketLI").querySelector(".edit-market-input");
         saveEditMarket(id, editInput);
     } else if(btn.classList.contains("delete-btn")){
-        deleteMarket(id);
+        confirmDeleteMarket(id);
     }
 });
 
-let markets = [];
+deleteMarketBtn.addEventListener('click', () =>{
+    if(deletingMarketId !== null){
+        deleteMarket(deletingMarketId);
+    }
+
+    deletingMarketId = null;
+    confirmDeleteModal.close();
+
+    renderMarketList();
+});
+
+
+
 
 function createMarket(name){
 
@@ -188,7 +204,6 @@ function renderMarketList(){
     });
     
     marketContainer.append(marketUL);
-    console.log()
 
 }
 
@@ -227,6 +242,18 @@ function saveEditMarket(id, input){
 }
 
 function deleteMarket(id){
+    markets = markets.filter((m) => {
+        return m.id !== id;
+    })
+
+    if(editingMarketId === id){
+        editingMarketId = null;
+    }
+
+}
+
+function confirmDeleteMarket(id){
+    deletingMarketId = id;
     confirmDeleteModal.showModal();
 }
 

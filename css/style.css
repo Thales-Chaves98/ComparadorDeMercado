@@ -195,6 +195,17 @@ button{
     padding: var(--space-sm);
 
 }
+.modal-content h1, .modal-content p{
+    color: var(--text-main);
+
+    text-align: center;
+}
+.modal-content h1{
+    font-size: var(--font-size-lg);
+    margin: var(--space-sm) 0;
+
+    font-weight: bold;
+}
 
 .modal-actions{
     display: flex;
