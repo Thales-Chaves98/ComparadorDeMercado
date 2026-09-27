@@ -331,3 +331,37 @@ button{
 
     width: 100%;
 }
+
+.market-list-content{
+    display: flex;
+    align-items: center;
+}
+.market-name{
+    flex: 1;
+    display: flex;
+    color: var(--text-main);
+    font-weight: bold;
+}
+
+.edit-btn, .delete-btn{
+    background-color: transparent;
+    border: none;
+}
+.edit-btn > span, .delete-btn > span{
+    color: var(--text-main);
+}
+
+.edit-market-input{
+    flex: 1;
+    color: var(--text-main);
+    font-weight: bold;
+
+    border: none;
+    background-color: transparent;
+}
+.edit-market-input:focus{
+    outline: none;
+    line-height: 1.2;
+
+    cursor: pointer;
+}

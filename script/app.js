@@ -63,7 +63,23 @@ function showView(viewId) {
 const newMarketInput = document.getElementById("market-name-input");
 const saveMarketBtn = document.getElementById("save-market-btn");
 
+const newMarketModal = document.getElementById("add-market-modal");
+
 let marketId = 1;
+
+let editingMarketId;
+let deletingMarketId;
+
+newMarketModal.addEventListener('cancel', () =>{
+    newMarketInput.value = "";
+});
+
+newMarketInput.addEventListener('keydown', (e) =>{
+    if(e.key === "Enter"){
+        e.preventDefault();
+        saveMarket();
+    }
+});
 
 saveMarketBtn.addEventListener('click', () =>{
     saveMarket();
@@ -78,22 +94,22 @@ function createMarket(name){
         marketName: name
     };
 
-    marketId++
+    marketId++;
     markets.push(market);
     console.log(markets);
 }
 
 function saveMarket(){
     const marketName = newMarketInput.value.trim().toUpperCase();
-    const modal = document.getElementById('add-market-modal');
     
-    if(marketName != ""){
-        createMarket(marketName);
-        newMarketInput.value = "";
+    if(marketName === ""){
+        return;
     }
-
+    createMarket(marketName);
+    newMarketInput.value = "";
+    
     renderMarketList();
-    modal.close();
+    newMarketModal.close();
 }
 
 function renderMarketList(){
@@ -106,11 +122,48 @@ function renderMarketList(){
     }
 
     markets.forEach(m=>{
-        ;
         
         const marketLI = document.createElement('li');
         marketLI.classList.add('marketLI');
-        marketLI.textContent = m.marketName;
+
+
+        let marketContent;
+        
+       if(m.id === editingMarketId){
+        marketContent = `
+            <div class="market-list-content">
+                <div class="market-name">    
+                    <input type="text" class="edit-market-input" value="${m.marketName}" data-id="${m.id}>
+                </div>
+                <div class="market-list-actions">
+                    <button class="edit-btn" data-id="${m.id}">
+                        <span class="material-symbols-outlined filled">save_as</span>
+                    </button>                
+                    <button class="delete-btn" data-id="${m.id}">
+                        <span class="material-symbols-outlined filled">delete_forever</span>
+                    </button>                               
+                </div>
+            </div>
+        `;
+       } else {
+         marketContent = `
+            <div class="market-list-content">
+                <div class="market-name">    
+                    <p>${m.marketName}</p>
+                </div>
+                <div class="market-list-actions">
+                    <button class="edit-btn" data-id="${m.id}">
+                        <span class="material-symbols-outlined filled">edit</span>
+                    </button>                
+                    <button class="delete-btn" data-id="${m.id}">
+                        <span class="material-symbols-outlined filled">delete_forever</span>
+                    </button>                               
+                </div>
+            </div>
+        `;
+       }
+
+        marketLI.innerHTML = marketContent;
 
         marketUL.append(marketLI);
         
