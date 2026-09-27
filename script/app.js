@@ -65,6 +65,7 @@ const newMarketInput = document.getElementById("market-name-input");
 const saveMarketBtn = document.getElementById("save-market-btn");
 
 const newMarketModal = document.getElementById("add-market-modal");
+const confirmDeleteModal = document.getElementById("confirm-delete-modal");
 
 let marketId = 1;
 
@@ -99,6 +100,8 @@ marketContainer.addEventListener("click", (e) =>{
     } else if(btn.classList.contains("save-edit-btn")){
         const editInput = btn.closest(".marketLI").querySelector(".edit-market-input");
         saveEditMarket(id, editInput);
+    } else if(btn.classList.contains("delete-btn")){
+        deleteMarket(id);
     }
 });
 
@@ -221,6 +224,10 @@ function saveEditMarket(id, input){
     saveMarket();
     renderMarketList();
 
+}
+
+function deleteMarket(id){
+    confirmDeleteModal.showModal();
 }
 
 /* TODO/FIX:
