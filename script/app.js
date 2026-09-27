@@ -2,6 +2,7 @@ const main = document.querySelector('main');
 const header = document.querySelector('header');
 const addMarketBtn = document.getElementById('new-market-btn');
 const backHomeBtn = document.querySelector(".back-home");
+const marketContainer = document.querySelector('.markets-container');
 
 const cancelBtn = document.querySelectorAll('.cancel-btn');
 
@@ -67,7 +68,7 @@ const newMarketModal = document.getElementById("add-market-modal");
 
 let marketId = 1;
 
-let editingMarketId;
+let editingMarketId = 2;
 let deletingMarketId;
 
 newMarketModal.addEventListener('cancel', () =>{
@@ -85,6 +86,22 @@ saveMarketBtn.addEventListener('click', () =>{
     saveMarket();
 });
 
+marketContainer.addEventListener("click", (e) =>{
+    const btn = e.target.closest("button");
+
+    if(!btn) return;
+
+    const id = Number(btn.dataset.id);
+
+    if(btn.classList.contains("edit-btn")){
+        enableEditMarket(id);
+        
+    } else if(btn.classList.contains("save-edit-btn")){
+        const editInput = btn.closest(".marketLI").querySelector(".edit-market-input");
+        saveEditMarket(id, editInput);
+    }
+});
+
 let markets = [];
 
 function createMarket(name){
@@ -96,7 +113,6 @@ function createMarket(name){
 
     marketId++;
     markets.push(market);
-    console.log(markets);
 }
 
 function saveMarket(){
@@ -113,7 +129,6 @@ function saveMarket(){
 }
 
 function renderMarketList(){
-    const marketContainer = document.querySelector('.markets-container');
     const marketUL = document.createElement('ul');
     marketUL.classList.add('marketUL')
 
@@ -136,7 +151,7 @@ function renderMarketList(){
                     <input type="text" class="edit-market-input" value="${m.marketName}" data-id="${m.id}>
                 </div>
                 <div class="market-list-actions">
-                    <button class="edit-btn" data-id="${m.id}">
+                    <button class="save-edit-btn" data-id="${m.id}">
                         <span class="material-symbols-outlined filled">save_as</span>
                     </button>                
                     <button class="delete-btn" data-id="${m.id}">
@@ -174,8 +189,40 @@ function renderMarketList(){
 
 }
 
+function enableEditMarket(id){
+    editingMarketId = id;
+    renderMarketList();
+
+    const editInput = document.querySelector(".edit-market-input");
+
+    if(editInput){
+        editInput.focus();
+
+        editInput.setSelectionRange(editInput.value.length, editInput.value.length);
+    }
+
+
+}
+
+function saveEditMarket(id, input){
+    const m = markets.find(mName =>{
+        return mName.id === id;
+    });
+
+    if(!m) return;
+
+    const newmarketName = input.value.trim().toUpperCase();
+
+    if(newmarketName ==="") return;
+
+    m.marketName = newmarketName;
+    editingMarketId = null;
+
+    saveMarket();
+    renderMarketList();
+
+}
 
 /* TODO/FIX:
-- ADD NEW MARKET MODAL ESC DONT CLEAR THE INPUT
 
 */

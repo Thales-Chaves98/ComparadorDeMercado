@@ -343,11 +343,11 @@ button{
     font-weight: bold;
 }
 
-.edit-btn, .delete-btn{
+.edit-btn, .delete-btn, .save-edit-btn{
     background-color: transparent;
     border: none;
 }
-.edit-btn > span, .delete-btn > span{
+.edit-btn > span, .delete-btn > span, .save-edit-btn > span{
     color: var(--text-main);
 }
 
@@ -355,6 +355,7 @@ button{
     flex: 1;
     color: var(--text-main);
     font-weight: bold;
+    line-height: 1.2;
 
     border: none;
     background-color: transparent;
