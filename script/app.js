@@ -153,6 +153,15 @@ function renderMarketList(){
 
     if(markets.length > 0){
         marketContainer.innerHTML = '';
+    } else if (markets.length === 0){
+        marketContainer.innerHTML = 
+        `
+        <div class="empty-markets">
+            <span class="material-symbols-outlined filled">add_business</span>
+            <h1>NENHUM MERCADO CADASTRADO !</h1>
+            <p>Adicione um mercado para comparar preços.</p>
+         </div>
+        `
     }
 
     markets.forEach(m=>{
@@ -256,6 +265,8 @@ function confirmDeleteMarket(id){
     deletingMarketId = id;
     confirmDeleteModal.showModal();
 }
+
+renderMarketList();
 
 /* TODO/FIX:
 
