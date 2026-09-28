@@ -5,14 +5,14 @@
     --font-main: "Jakarta", sans-serif;
 
     --bg-main:          #f1f5f9;       
-    --card-bg:          #d8f3db;       
-    --primary:          #165a2a;       
+    --card-bg:          #98ca9b;       
+    --primary:          #088a2d;       
     --primary-hover:    #1d6e36;  
     --text-main:        #092913;          
     --text-muted:       #7f9986;     
-    --border:           #c8e4cd;
-    --color-success:    #2e9e6b;
-    --color-danger:     #c21a2d;
+    --border:           #bee9c6;
+    --color-success:    #10b30a;
+    --color-danger:     #e0182f;
 
     
     --space-xs: 4px;
@@ -34,12 +34,12 @@
     
 .dark-theme{
     --bg-main:          #090c0a;       
-    --card-bg:          #1a231d;       
+    --card-bg:          #2f4235;       
     --primary:          #165a2a;       
     --primary-hover:    #1d6e36;  
     --text-main:        #f1f5f9;          
     --text-muted:       #8fa898;     
-    --border:           #2a3a30;
-    --color-success:    #2e9e6b;
-    --color-danger:     #c21a2d;
+    --border:           #455e4e;
+    --color-success:    #0b8007;
+    --color-danger:     #a81224;
 }
