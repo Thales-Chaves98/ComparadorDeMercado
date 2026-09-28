@@ -1,10 +1,15 @@
 const main = document.querySelector('main');
 const header = document.querySelector('header');
-const addMarketBtn = document.getElementById('new-market-btn');
+
 const backHomeBtn = document.querySelector(".back-home");
+const themeBtn = document.getElementById("theme-toggle");
+
+const addMarketBtn = document.getElementById('new-market-btn');
 const marketContainer = document.querySelector('.markets-container');
 
 const cancelBtn = document.querySelectorAll('.cancel-btn');
+
+let theme = true;
 
 main.addEventListener('click', (e) =>{
 
@@ -25,6 +30,13 @@ header.addEventListener('click', (e) => {
     if(backMenuBtn) {
         showView('home');
     }
+});
+
+themeBtn.addEventListener("click", () =>{
+    theme = !theme;
+    const newTheme = theme ? "light" : "dark";
+
+    applyTheme(newTheme);
 });
 
 addMarketBtn.addEventListener('click', () => {
@@ -57,6 +69,18 @@ function showView(viewId) {
         backHomeBtn.classList.add('invisible');
     } else {
         backHomeBtn.classList.remove('invisible');        
+    }
+}
+
+function applyTheme(theme){
+    const themeIcon = themeBtn.querySelector("span");
+
+    if(theme === "light"){
+        themeIcon.textContent = "moon_stars";
+        document.body.classList.remove("dark-theme");
+    } else {
+        themeIcon.textContent = "light_mode";
+        document.body.classList.add("dark-theme");
     }
 }
 

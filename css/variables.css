@@ -8,8 +8,6 @@
     --card-bg:          #d8f3db;       
     --primary:          #165a2a;       
     --primary-hover:    #1d6e36;  
-    --accent:           #ff6b00;         
-    --accent-hover:     #e05e00;  
     --text-main:        #092913;          
     --text-muted:       #7f9986;     
     --border:           #c8e4cd;
@@ -34,3 +32,14 @@
     --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.5);
 }
     
+.dark-theme{
+    --bg-main:          #090c0a;       
+    --card-bg:          #1a231d;       
+    --primary:          #165a2a;       
+    --primary-hover:    #1d6e36;  
+    --text-main:        #f1f5f9;          
+    --text-muted:       #8fa898;     
+    --border:           #2a3a30;
+    --color-success:    #2e9e6b;
+    --color-danger:     #c21a2d;
+}

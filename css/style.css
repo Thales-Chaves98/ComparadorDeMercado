@@ -14,7 +14,7 @@ body{
 
     height: 100vh;
 
-    background-color: color-mix(in srgb, var(--primary) 5%, transparent);
+    background-color: var(--bg-main);
 }
 
 header{
@@ -308,6 +308,7 @@ button{
     border-radius: var(--space-sm);
     
     color: var(--text-main);
+    background-color: var(--bg-main);
 
     padding: var(--space-sm);
     margin-top: var(--space-sm);
