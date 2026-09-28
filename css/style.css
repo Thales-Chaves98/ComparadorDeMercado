@@ -332,8 +332,6 @@ button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    background-color: var(--card-bg);
     
     width: 100%;
 }
