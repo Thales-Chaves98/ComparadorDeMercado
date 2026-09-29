@@ -39,12 +39,7 @@ themeBtn.addEventListener("click", () =>{
     applyTheme(newTheme);
 });
 
-addMarketBtn.addEventListener('click', () => {
-    const newMarketModal = document.getElementById('add-market-modal');
-    newMarketModal.showModal();
 
-    
-});
 
 cancelBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -99,6 +94,13 @@ let marketId = 1;
 
 let editingMarketId;
 let deletingMarketId;
+
+addMarketBtn.addEventListener('click', () => {
+    const newMarketModal = document.getElementById('add-market-modal');
+    newMarketModal.showModal();
+
+    
+});
 
 newMarketModal.addEventListener('cancel', () =>{
     newMarketInput.value = "";
