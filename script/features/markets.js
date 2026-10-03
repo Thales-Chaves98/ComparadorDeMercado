@@ -22,7 +22,7 @@ let editingMarketId = null;
 let deletingMarketId = null;
 
 function gerarMarketId() {
-  return crypto.randomUUID();
+    return crypto.randomUUID();
 }
 
 function createMarket(name){

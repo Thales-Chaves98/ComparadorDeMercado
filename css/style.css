@@ -122,6 +122,15 @@ footer a:hover{
 
 /* GLOBAL */
 
+.call-action-btn{
+    background-color: var(--primary);
+    color: var(--bg-main);
+    font-weight: 700;
+    border: 1px solid var(--border);
+    padding: var(--space-md);
+    border-radius: var(--space-sm);
+}
+
 .filled{
     font-variation-settings: "FILL" 1;
 }
@@ -256,17 +265,6 @@ button{
     width: 100%;
 }
 
-.new-market-btn{
-    background-color: var(--primary);
-    color: var(--bg-main);
-    font-weight: 700;
-    border: 1px solid var(--border);
-    padding: var(--space-md);
-    border-radius: var(--space-sm);
-}
-
-
-
 .empty-markets{
     display: flex;
     flex-direction: column;
@@ -376,3 +374,6 @@ button{
 
     cursor: pointer;
 }
+
+/*NEW LIST*/
+
