@@ -1,14 +1,14 @@
 import { initializeMarkets } from "./features/markets.js";
+import  { initializeTheme } from "./features/theme.js";
 
 initializeMarkets();
+initializeTheme();
 
 const main = document.querySelector('main');
 const header = document.querySelector('header');
 
 const backHomeBtn = document.querySelector(".back-home");
-const themeBtn = document.getElementById("theme-toggle");
 
-let theme = true;
 
 main.addEventListener('click', (e) =>{
 
@@ -31,12 +31,6 @@ header.addEventListener('click', (e) => {
     }
 });
 
-themeBtn.addEventListener("click", () =>{
-    theme = !theme;
-    const newTheme = theme ? "light" : "dark";
-
-    applyTheme(newTheme);
-});
 
 
 
@@ -58,17 +52,6 @@ function showView(viewId) {
     }
 }
 
-function applyTheme(theme){
-    const themeIcon = themeBtn.querySelector("span");
-
-    if(theme === "light"){
-        themeIcon.textContent = "moon_stars";
-        document.body.classList.remove("dark-theme");
-    } else {
-        themeIcon.textContent = "light_mode";
-        document.body.classList.add("dark-theme");
-    }
-}
 
 showView('home');
 
