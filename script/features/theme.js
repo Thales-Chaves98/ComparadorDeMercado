@@ -1,6 +1,10 @@
+import { loadAppData, saveAppData } from "../core/localStorage.js";
+
 const themeBtn = document.getElementById("theme-toggle");
 
-let theme = true;
+const appData = loadAppData();
+
+let theme = appData.theme;
 
 function applyTheme(theme){
     const themeIcon = themeBtn.querySelector("span");
@@ -12,16 +16,21 @@ function applyTheme(theme){
         themeIcon.textContent = "light_mode";
         document.body.classList.add("dark-theme");
     }
+    saveAppData(appData);
 }
 
 
 export function initializeTheme(){
 
-    themeBtn.addEventListener("click", () =>{
-    theme = !theme;
-    const newTheme = theme ? "light" : "dark";
+    applyTheme(theme);
 
-    applyTheme(newTheme);
+    themeBtn.addEventListener("click", () =>{
+        theme = theme === "light" ? "dark" : "light";
+        
+        applyTheme(theme);
+        
+        appData.theme = theme;
+        saveAppData(appData);
     });
 
 }

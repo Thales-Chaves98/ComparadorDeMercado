@@ -6,3 +6,7 @@ import  { initializeNavigation } from "./features/navigation.js";
 initializeMarkets();
 initializeTheme();
 initializeNavigation();
+
+
+/* BUGS TO FIX */
+

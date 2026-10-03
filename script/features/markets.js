@@ -1,3 +1,5 @@
+import { loadAppData, saveAppData } from "../core/localStorage.js";
+
 const marketContainer = document.querySelector('.markets-container');
 
 const newMarketInput = document.getElementById("market-name-input");
@@ -12,24 +14,26 @@ const addMarketBtn = document.getElementById('new-market-btn');
 
 const cancelBtn = document.querySelectorAll('.cancel-btn');
 
+const appData = loadAppData();
 
-let markets = [];
-
-let marketId = 1;
+let markets = appData.markets;
 
 let editingMarketId = null;
 let deletingMarketId = null;
 
+function gerarMarketId() {
+  return crypto.randomUUID();
+}
 
 function createMarket(name){
 
     let market = {
-        id: marketId,
+        id: gerarMarketId(),
         marketName: name
     };
 
-    marketId++;
     markets.push(market);
+    saveAppData(appData);
 }
 
 function saveMarket(){
@@ -146,8 +150,8 @@ function saveEditMarket(id, input){
     editingMarketId = null;
 
     
+    saveAppData(appData);
     renderMarketList();
-
 }
 
 function deleteMarket(id){
@@ -155,10 +159,13 @@ function deleteMarket(id){
         return m.id !== id;
     })
 
+    appData.markets = markets;
+
     if(editingMarketId === id){
         editingMarketId = null;
     }
-
+    
+    saveAppData(appData);
 }
 
 function confirmDeleteMarket(id){
@@ -188,7 +195,7 @@ export function initializeMarkets(){
 
         if(!btn) return;
 
-        const id = Number(btn.dataset.id);
+        const id = btn.dataset.id;
 
         if(btn.classList.contains("edit-btn")){
             enableEditMarket(id);
