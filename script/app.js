@@ -269,7 +269,7 @@ function saveEditMarket(id, input){
     m.marketName = newmarketName;
     editingMarketId = null;
 
-    saveMarket();
+    
     renderMarketList();
 
 }
