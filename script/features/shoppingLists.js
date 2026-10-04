@@ -1,10 +1,6 @@
 import { loadAppData, saveAppData } from "../core/localStorage.js";
 
-const appData = loadAppData();
-
 const totalMarketsAllowed = 4;
-
-let markets = appData.markets;
 
 const newListBtn = document.getElementById("new-list-btn");
 
@@ -16,7 +12,14 @@ const marketsCounter = document.getElementById("markets-counter");
 const cancelListBtn = document.getElementById("cancel-list-btn");
 const saveListBtn = document.getElementById("save-list-btn");
 
+const dateInput = document.getElementById("list-date");
+
+let shoppingLists = [];
+
 function renderMarketsList(){
+    const appData = loadAppData();
+    const markets = appData.markets;
+
     marketsList.innerHTML = "";
     
     markets.forEach(market => {
@@ -37,9 +40,28 @@ function updateMarketsCounter() {
     
 }
 
+function createShoppingList(date, selectedMarkets) {
+    
+    let shoppingList = {
+        id: crypto.randomUUID(),
+        date: date,
+        markets: selectedMarkets,
+        items: []
+    }
+
+    shoppingLists.push(shoppingList);
+    console.log(shoppingLists);
+
+}
+
+export function closeList() {
+    listAction.classList.remove("hidden");
+    listContainer.classList.add("hidden");
+}
+
 export function initializeShoppingLists(){
     
-    newListBtn.addEventListener('click', () =>{
+    newListBtn.addEventListener('click', () =>{        
         listAction.classList.add("hidden");
         listContainer.classList.remove("hidden");
 
@@ -64,6 +86,18 @@ export function initializeShoppingLists(){
         });
 
         updateMarketsCounter();
+    });
+
+    saveListBtn.addEventListener('click', () => {
+        const selectedDate = dateInput.value;
+        const selectedMarkets = Array.from(document.querySelectorAll("#list-markets input[type='checkbox']:checked")).map(cb => cb.value);
+
+        if(selectedDate !== "" && selectedMarkets.length > 0){
+            createShoppingList(selectedDate, selectedMarkets);
+            closeList();
+        }
+
+        console.log("Data:", selectedDate, "Markets:", selectedMarkets.marketName);
     });
 
 } 

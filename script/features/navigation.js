@@ -1,3 +1,5 @@
+import { closeList } from  "../features/shoppingLists.js";
+
 const main = document.querySelector('main');
 const header = document.querySelector('header');
 
@@ -14,15 +16,16 @@ function showView(viewId) {
 
     viewToShow.classList.remove('hidden');
     
+    if(viewId !== "shopping-list"){
+        closeList();
+    }
+
     if(viewId === "home"){
         backHomeBtn.classList.add('invisible');
     } else {
         backHomeBtn.classList.remove('invisible');        
     }
 }
-
-
-
 
 export function initializeNavigation(){
 

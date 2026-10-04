@@ -21,14 +21,10 @@ let markets = appData.markets;
 let editingMarketId = null;
 let deletingMarketId = null;
 
-function gerarMarketId() {
-    return crypto.randomUUID();
-}
-
 function createMarket(name){
 
     let market = {
-        id: gerarMarketId(),
+        id: crypto.randomUUID(),
         marketName: name
     };
 
