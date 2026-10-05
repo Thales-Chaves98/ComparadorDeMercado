@@ -2,8 +2,6 @@ import { loadAppData, saveAppData } from "../core/localStorage.js";
 
 const totalMarketsAllowed = 4;
 
-const appData = loadAppData();
-
 const newListBtn = document.getElementById("new-list-btn");
 const newListForm = document.getElementById("new-list-form");
 
@@ -17,9 +15,8 @@ const saveListBtn = document.getElementById("save-list-btn");
 
 const dateInput = document.getElementById("list-date");
 
-let shoppingLists = appData.shoppingLists;
-
 function renderMarketsList(){
+    const appData = loadAppData();
     const markets = appData.markets;
 
     marketsList.innerHTML = "";
@@ -44,7 +41,8 @@ function updateMarketsCounter() {
 }
 
 function createShoppingList(date, selectedMarkets) {
-    
+    const appData = loadAppData();
+
     let shoppingList = {
         id: crypto.randomUUID(),
         date: date,
@@ -52,7 +50,7 @@ function createShoppingList(date, selectedMarkets) {
         items: []
     }
 
-    shoppingLists.push(shoppingList);
+    appData.shoppingLists.push(shoppingList);
     saveAppData(appData);
 
 }
