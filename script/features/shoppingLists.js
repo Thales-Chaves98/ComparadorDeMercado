@@ -2,7 +2,10 @@ import { loadAppData, saveAppData } from "../core/localStorage.js";
 
 const totalMarketsAllowed = 4;
 
+const appData = loadAppData();
+
 const newListBtn = document.getElementById("new-list-btn");
+const newListForm = document.getElementById("new-list-form");
 
 const listAction = document.querySelector(".new-list-action");
 const listContainer = document.querySelector(".new-list-container");
@@ -14,10 +17,9 @@ const saveListBtn = document.getElementById("save-list-btn");
 
 const dateInput = document.getElementById("list-date");
 
-let shoppingLists = [];
+let shoppingLists = appData.shoppingLists;
 
 function renderMarketsList(){
-    const appData = loadAppData();
     const markets = appData.markets;
 
     marketsList.innerHTML = "";
@@ -31,6 +33,7 @@ function renderMarketsList(){
         </label>
         `;
     });
+    
     updateMarketsCounter();
 }
 
@@ -50,13 +53,26 @@ function createShoppingList(date, selectedMarkets) {
     }
 
     shoppingLists.push(shoppingList);
-    console.log(shoppingLists);
+    saveAppData(appData);
 
+}
+
+function resetMarket(){
+    const checkboxes = document.querySelectorAll("#list-markets input[type='checkbox']");
+    checkboxes.forEach(cb => {
+        cb.checked = false;
+        cb.disabled = false;
+    });
+
+    updateMarketsCounter();
 }
 
 export function closeList() {
     listAction.classList.remove("hidden");
     listContainer.classList.add("hidden");
+
+    newListForm.reset();
+    resetMarket();
 }
 
 export function initializeShoppingLists(){
@@ -84,7 +100,7 @@ export function initializeShoppingLists(){
         all.forEach(cb => {
             if (!cb.checked) cb.disabled = checked.length >= totalMarketsAllowed;
         });
-
+        
         updateMarketsCounter();
     });
 
@@ -92,12 +108,13 @@ export function initializeShoppingLists(){
         const selectedDate = dateInput.value;
         const selectedMarkets = Array.from(document.querySelectorAll("#list-markets input[type='checkbox']:checked")).map(cb => cb.value);
 
-        if(selectedDate !== "" && selectedMarkets.length > 0){
-            createShoppingList(selectedDate, selectedMarkets);
-            closeList();
-        }
+        if(selectedDate === "") return;
 
-        console.log("Data:", selectedDate, "Markets:", selectedMarkets.marketName);
+        if(selectedMarkets.length === 0) return;
+
+        createShoppingList(selectedDate, selectedMarkets);
+
+        closeList();
     });
 
 } 
