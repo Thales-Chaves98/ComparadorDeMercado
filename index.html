@@ -29,13 +29,37 @@
         </section>
 
         <section id="new-list" class="new-list hidden"> 
-            <div class="div-new-list"></div>
+            <div class="new-list-action">
+                    <button id="new-list-btn" class="call-action-btn">ADICIONAR COMPRA</button>
+            </div>
+
+            <div class="new-list-container hidden">
+                <form id="new-list-form" class="new-list-form">
+                    <div class="form-group">
+                        <label for="list-date">DATA DA COMPRA:</label>
+                        <input type="date" id="list-date" name="list-date" required>
+                    </div>
+                    <div class="form-group">
+                        <p class="form-label">SUPERMERCADOS:</p>
+                        <div id="list-markets" class="list-markets">
+                            
+                        </div>
+                        <span id="markets-counter">
+                            0/4 SELECIONADOS
+                        </span>
+                    </div>
+                </form>
+                <div class="new-list-actions">
+                    <button id="cancel-list-btn" class="cancel-btn">CANCELAR</button>
+                    <button id="save-list-btn" class="save-btn">SALVAR</button>
+                </div>
+            </div>
         </section>
 
         <section id="markets" class="markets hidden"> 
             <div class="markets-view">
                 <div class="market-action">
-                    <button id="new-market-btn" class="new-market-btn">ADICIONAR MERCADO</button>
+                    <button id="new-market-btn" class="call-action-btn">ADICIONAR MERCADO</button>
                 </div>
 
                 <div class="markets-container">
@@ -91,6 +115,6 @@
     </dialog>
 
 
-    <script src="script/app.js"></script>
+    <script type="module" src="script/app.js"></script>
 </body>
 </html>
