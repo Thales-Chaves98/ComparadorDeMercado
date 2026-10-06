@@ -15,7 +15,7 @@
     </header>
 
     <main>
-        <section id="home" class="home-header "> 
+        <section id="home" class="home-header"> 
             <div class="home-title">
                 <h1 class="title-text">COMPARADOR DE SUPERMERCADO</h1>
                 <p class="subtitle-text">Compare preços e economize!</p>
@@ -28,12 +28,12 @@
             </div>
         </section>
 
-        <section id="new-list" class="new-list hidden"> 
+        <section id="new-list" class="new-list"> 
             <div class="new-list-action">
                     <button id="new-list-btn" class="call-action-btn">ADICIONAR COMPRA</button>
             </div>
 
-            <div class="new-list-container hidden">
+            <div class="new-list-container">
                 <form id="new-list-form" class="new-list-form">
                     <div class="form-group">
                         <label for="list-date">DATA DA COMPRA:</label>
@@ -56,7 +56,7 @@
             </div>
         </section>
 
-        <section id="markets" class="markets hidden"> 
+        <section id="markets" class="markets"> 
             <div class="markets-view">
                 <div class="market-action">
                     <button id="new-market-btn" class="call-action-btn">ADICIONAR MERCADO</button>
@@ -69,9 +69,28 @@
             </div>
         </section>
 
-        <section id="shopping-lists" class="shopping-lists hidden">
+        <section id="shopping-lists" class="shopping-lists">
             <div class="div-list"></div>   
         </section>
+
+        <section id="shopping-list-active" class="shopping-list-active">
+            <div class="shopping-list-header">
+                <div class="list-title">
+                    <p class="shopping-list-label">COMPRA</p>
+                    <h1 id="shopping-list-date"></h1>
+                </div>
+
+                <div class="list-item-input">
+                    <input type="text" id="item-name" placeholder="NOME DO ITEM">
+                    <button id="add-item-btn" class="add-item-btn"><span class="material-symbols-outlined filled">add</span></button>
+                </div>
+            </div>
+
+            <div class="shopping-list-table">
+                
+            </div>
+        </section>
+        
     </main>
 
     <footer>

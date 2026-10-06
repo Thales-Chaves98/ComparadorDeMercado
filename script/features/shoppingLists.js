@@ -1,4 +1,5 @@
 import { loadAppData, saveAppData } from "../core/localStorage.js";
+import { openActiveShoppingList } from "./shoppingListActive.js";
 
 const totalMarketsAllowed = 4;
 
@@ -53,6 +54,7 @@ function createShoppingList(date, selectedMarkets) {
     appData.shoppingLists.push(shoppingList);
     saveAppData(appData);
 
+    return shoppingList;
 }
 
 function resetMarket(){
@@ -110,9 +112,9 @@ export function initializeShoppingLists(){
 
         if(selectedMarkets.length === 0) return;
 
-        createShoppingList(selectedDate, selectedMarkets);
-
-        closeList();
+        const shoppingList = createShoppingList(selectedDate, selectedMarkets);
+        
+        openActiveShoppingList(shoppingList.id);
     });
 
 } 

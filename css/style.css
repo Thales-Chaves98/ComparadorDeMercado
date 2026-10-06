@@ -498,3 +498,10 @@ button{
     background-color: var(--bg-main);
     color: var(--text-main);
 }
+
+/*ACTIVE SHOPPING LIST*/
+
+.shopping-list-active{
+    width: 90%;
+    
+}
