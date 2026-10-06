@@ -502,6 +502,46 @@ button{
 /*ACTIVE SHOPPING LIST*/
 
 .shopping-list-active{
-    width: 90%;
-    
+    width: 90%;   
+
+    font-family: var(--font-main);
+}
+
+.shopping-list-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.list-title{
+    color: var(--text-main);
+    font-size: var(--font-size-lg);
+    font-weight: bolder;
+
+    margin: var(--space-sm) 0 var(--space-md) 0;
+}
+
+.list-item-input{
+    display: flex;
+    gap: var(--space-sm);
+}
+.list-item-input input{
+    background-color: var(--bg-main);
+    border: 2px solid var(--border);
+    border-radius: var(--space-sm);
+
+    color: var(--text-main);
+    text-align: center;
+}
+.list-item-input input::placeholder{
+    text-align: center;
+
+    color: var(--text-muted);
+}
+.add-item-btn{
+    background-color: var(--primary);
+    border: 2px solid var(--primary-hover);
+    border-radius: var(--space-sm);
+
+    color: var(--text-main);
 }

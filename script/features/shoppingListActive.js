@@ -10,7 +10,12 @@ const shoppingDate = document.getElementById("shopping-list-date");
 
 
 
+function formatDate(date) {
+    if(!date) return "";
 
+    const [year, month, day] = date.split("-");
+    return `${day}/${month}/${year}`;
+};
 
 export function openActiveShoppingList(shopppingListId) {
     newList.classList.add("hidden");
@@ -22,5 +27,5 @@ export function openActiveShoppingList(shopppingListId) {
 
     if(!shoppingList) return;
 
-    shoppingDate.textContent = shoppingList.date;
+    shoppingDate.textContent = formatDate(shoppingList.date);
 }
