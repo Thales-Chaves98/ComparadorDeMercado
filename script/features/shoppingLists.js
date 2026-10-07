@@ -1,5 +1,7 @@
 import { loadAppData, saveAppData } from "../core/localStorage.js";
-import { openActiveShoppingList } from "./shoppingListActive.js";
+import { initializeActiveList, openActiveShoppingList } from "./shoppingListActive.js";
+
+initializeActiveList();
 
 const totalMarketsAllowed = 4;
 
@@ -46,7 +48,7 @@ function createShoppingList(date, selectedMarkets) {
 
     let shoppingList = {
         id: crypto.randomUUID(),
-        date: date,
+        date,
         markets: selectedMarkets,
         items: []
     }
