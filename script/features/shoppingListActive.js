@@ -7,7 +7,7 @@ const activeShoppingList = document.getElementById("shopping-list-active");
 const newList = document.querySelector(".new-list");
 const shoppingDate = document.getElementById("shopping-list-date");
 
-const shoppingTable = document.getElementById("shopping-list-table");
+const shoppingContainer = document.getElementById("shopping-list-table");
 
 let activeListId = null;
 
@@ -18,24 +18,70 @@ function formatDate(date) {
     return `${day}/${month}/${year}`;
 };
 
-function renderItems(shoppingList){ /*JUST TESTING CHANGE TO TABLE LATER*/
-    if(!shoppingTable) return;
+function renderItems(shoppingList){ 
+    if(!shoppingContainer) return;
 
-    shoppingTable.innerHTML = "";
+    shoppingContainer.innerHTML = "";
 
-    if (shoppingList.items.length === 0) {
-        shoppingTable.innerHTML = `<p class="empty-items">Nenhum item ainda.</p>`;
-        return;
-    }
+    const appData = loadAppData();
 
-    shoppingList.items.forEach(item => {
-        shoppingTable.innerHTML += `
-            <div class="item" data-id="${item.id}">
-                <span class="item-name">${item.itemName}</span>
-                <span class="item-price">${item.itemPrice ?? "—"}</span>
-            </div>
-        `;
+    const selectedMarkets = shoppingList.markets.map(marketId =>{
+        return appData.markets.find(market => market.id === marketId)
     });
+
+    const shoppingTable = document.createElement('table');
+    const tHead = document.createElement('thead');
+    const tBody = document.createElement('tbody');
+
+    const headerRow = document.createElement('tr');
+
+    const itemHeader = document.createElement('th');
+    itemHeader.textContent = "ITEM";
+    headerRow.append(itemHeader);
+
+    selectedMarkets.forEach(m => {
+        const marketHeader = document.createElement('th');
+
+        marketHeader.textContent = m.marketName;
+
+        headerRow.append(marketHeader);
+    });
+
+    const actionsHeader = document.createElement('th');
+    actionsHeader.textContent = "AÇÕES";
+    headerRow.append(actionsHeader);
+
+    tHead.append(headerRow);
+
+    shoppingList.items.forEach(i =>{
+        const itemRow = document.createElement('tr');
+
+        const itemCell = document.createElement('td');
+        itemCell.textContent = i.itemName;
+
+        itemRow.append(itemCell);
+
+        selectedMarkets.forEach(m =>{
+            const priceCell = document.createElement('td');
+            priceCell.textContent = m.prices;
+            itemRow.append(priceCell);
+        });
+
+        const actionCell = document.createElement('td');
+        actionCell.innerHTML = 'ACTIONS';
+        
+        itemRow.append(actionCell);
+
+        tBody.append(itemRow);
+    });
+
+
+
+
+    shoppingTable.append(tHead);
+    shoppingTable.append(tBody);
+
+    shoppingContainer.append(shoppingTable); 
 }
 
 function createItem(itemName){
@@ -48,7 +94,8 @@ function createItem(itemName){
     const item = {
         id: crypto.randomUUID(),
         itemName: itemName,
-        itemPrice: null
+        amount: 1,
+        prices: {}
     }
 
     shoppingList.items.push(item);
