@@ -545,3 +545,69 @@ button{
 
     color: var(--text-main);
 }
+
+/*TABLE*/
+
+#shopping-list-table{
+    width: 100%;
+    margin-top: var(--space-md);
+
+    overflow-x: auto;
+}
+#shopping-list-table table{
+    width: 100%;
+
+    border: 1px solid var(--border);
+    border-radius: var(--space-sm);
+    border-collapse: collapse;
+
+    font-size: var(--font-size-md);
+    font-family: var(--font-main);
+    color: var(--text-main);
+
+    overflow: hidden;
+}
+
+#shopping-list-table thead{
+    background-color: var(--text-main);
+}
+#shopping-list-table thead th{
+    color: var(--bg-main);
+
+    text-align: center;
+    font-weight: bold;
+    font-size: var(--space-md);
+
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    padding: var(--space-sm);
+}
+
+#shopping-list-table tbody tr{
+    border-bottom: 1px solid var(--border);
+}
+#shopping-list-table tbody tr:last-child{
+    border-bottom: none;
+}
+#shopping-list-table tbody tr:hover{
+    background-color: var(--card-bg);
+}
+
+#shopping-list-table tbody td {
+    padding: var(--space-xs);
+    vertical-align: middle;
+    color: var(--text-main);
+}
+#shopping-list-table tbody td:first-child{
+    font-weight: bold;
+}
+
+#shopping-list-table tbody td:not(:first-child):not(:last-child) {
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+#shopping-list-table tbody td:last-child {
+    text-align: right;
+}

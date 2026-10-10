@@ -5,7 +5,7 @@
     --font-main: "Jakarta", sans-serif;
 
     --bg-main:          #f1f5f9;       
-    --card-bg:          #98ca9b;       
+    --card-bg:          #baf0be;       
     --primary:          #088a2d;       
     --primary-hover:    #1d6e36;  
     --text-main:        #092913;          
@@ -22,8 +22,8 @@
     --space-xl: 32px;
     --space-xx: 48px;
 
-    --font-size-xs: 4px;
-    --font-size-sm: 8px;
+    --font-size-xs: 8px;
+    --font-size-sm: 12px;
     --font-size-md: 16px;
     --font-size-lg: 24px;
     --font-size-xl: 32px;

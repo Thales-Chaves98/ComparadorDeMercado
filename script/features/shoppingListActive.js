@@ -63,7 +63,15 @@ function renderItems(shoppingList){
 
         selectedMarkets.forEach(m =>{
             const priceCell = document.createElement('td');
-            priceCell.textContent = m.prices;
+
+            const savedPrice = i.prices?.[m.id] ?? "";
+
+            priceCell.innerHTML = 
+            `
+                <input type="number" data-item-id="${i.id}" 
+                data-market-id="${m.id}" value="${savedPrice}">
+            `;
+
             itemRow.append(priceCell);
         });
 
@@ -137,6 +145,8 @@ export function openActiveShoppingList(shoppingListId) {
     shoppingDate.textContent = formatDate(shoppingList.date);
 
     renderItems(shoppingList);
+
+    
 }
 
 export function initializeActiveList(){
@@ -148,5 +158,27 @@ export function initializeActiveList(){
             e.preventDefault();
             saveItem();
         }
+    });
+
+    shoppingContainer.addEventListener('change', (e) =>{
+        if (!e.target.matches("input[data-item-id][data-market-id]")) return;
+
+        const itemId = e.target.dataset.itemId;
+        const marketId = e.target.dataset.marketId;
+        const price = e.target.value;
+
+        const appData = loadAppData();
+
+        const shoppingList = appData.shoppingLists.find(list => list.id === activeListId);
+        if(!shoppingList) return;
+        
+        const item = shoppingList.items.find(i => i.id === itemId);
+        if(!item) return;
+
+        const formattedPrice = price === "" ? null : Number(price);
+
+        item.prices[marketId] = formattedPrice;
+
+        saveAppData(appData);
     });
 }
